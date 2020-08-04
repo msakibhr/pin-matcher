@@ -23,6 +23,8 @@ const six = document.querySelector('#six');
 const seven = document.querySelector('#seven');
 const eight = document.querySelector('#eight');
 const nine = document.querySelector('#nine');
+const clearOne = document.querySelector('.clear-one');
+const clearAll = document.querySelector('.clear-all');
 
 zero.addEventListener('click', () => {
 	inputDisplay.value += 0;
@@ -53,6 +55,12 @@ eight.addEventListener('click', () => {
 });
 nine.addEventListener('click', () => {
 	inputDisplay.value += 9;
+});
+clearAll.addEventListener('click', () => {
+	inputDisplay.value = '';
+});
+clearOne.addEventListener('click', () => {
+	inputDisplay.value = inputDisplay.value.slice(0, -1);
 });
 
 document.querySelector('.submit-btn').addEventListener('click', () => {
