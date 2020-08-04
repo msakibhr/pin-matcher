@@ -1,14 +1,17 @@
 const generatorDisplay = document.querySelector('.pin-generator input');
 const generateButton = document.querySelector('.generate-btn');
+const inputDisplay = document.querySelector('.input-section input');
 
 let pin = 0;
 
 generateButton.addEventListener('click', () => {
 	pin = Math.floor(1000 + Math.random() * 9000);
 	generatorDisplay.value = pin;
+	document.querySelector('.matched').style.display = 'none';
+	document.querySelector('.not-matched').style.display = 'none';
+	inputDisplay.value = '';
 });
 
-const inputDisplay = document.querySelector('.input-section input');
 const zero = document.querySelector('#zero');
 const one = document.querySelector('#one');
 const two = document.querySelector('#two');
@@ -21,32 +24,45 @@ const eight = document.querySelector('#eight');
 const nine = document.querySelector('#nine');
 
 zero.addEventListener('click', () => {
-	inputDisplay.value = inputDisplay.value + 0;
+	inputDisplay.value += 0;
 });
 one.addEventListener('click', () => {
-	inputDisplay.value = inputDisplay.value + 1;
+	inputDisplay.value += 1;
 });
 two.addEventListener('click', () => {
-	inputDisplay.value = inputDisplay.value + 2;
+	inputDisplay.value += 2;
 });
 three.addEventListener('click', () => {
-	inputDisplay.value = inputDisplay.value + 3;
+	inputDisplay.value += 3;
 });
 four.addEventListener('click', () => {
-	inputDisplay.value = inputDisplay.value + 4;
+	inputDisplay.value += 4;
 });
 five.addEventListener('click', () => {
-	inputDisplay.value = inputDisplay.value + 5;
+	inputDisplay.value += 5;
 });
 six.addEventListener('click', () => {
-	inputDisplay.value = inputDisplay.value + 6;
+	inputDisplay.value += 6;
 });
 seven.addEventListener('click', () => {
-	inputDisplay.value = inputDisplay.value + 7;
+	inputDisplay.value += 7;
 });
 eight.addEventListener('click', () => {
-	inputDisplay.value = inputDisplay.value + 8;
+	inputDisplay.value += 8;
 });
 nine.addEventListener('click', () => {
-	inputDisplay.value = inputDisplay.value + 9;
+	inputDisplay.value += 9;
+});
+
+document.querySelector('.submit-btn').addEventListener('click', () => {
+	document.querySelector('.matched').style.display = 'none';
+	document.querySelector('.not-matched').style.display = 'none';
+
+	const inputPin = parseInt(inputDisplay.value);
+
+	if (inputPin === pin) {
+		document.querySelector('.matched').style.display = 'block';
+	} else {
+		document.querySelector('.not-matched').style.display = 'block';
+	}
 });
