@@ -7,9 +7,8 @@ let pin = 0;
 generateButton.addEventListener('click', () => {
 	pin = Math.floor(1000 + Math.random() * 9000);
 	generatorDisplay.value = pin;
-	document.querySelector('.matched').style.display = 'none';
-	document.querySelector('.not-matched').style.display = 'none';
 	inputDisplay.value = '';
+	clearNotify();
 });
 
 const zero = document.querySelector('#zero');
@@ -55,8 +54,7 @@ nine.addEventListener('click', () => {
 });
 
 document.querySelector('.submit-btn').addEventListener('click', () => {
-	document.querySelector('.matched').style.display = 'none';
-	document.querySelector('.not-matched').style.display = 'none';
+	clearNotify();
 
 	const inputPin = parseInt(inputDisplay.value);
 
@@ -66,3 +64,8 @@ document.querySelector('.submit-btn').addEventListener('click', () => {
 		document.querySelector('.not-matched').style.display = 'block';
 	}
 });
+
+const clearNotify = () => {
+	document.querySelector('.matched').style.display = 'none';
+	document.querySelector('.not-matched').style.display = 'none';
+};
