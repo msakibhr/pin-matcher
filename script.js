@@ -1,6 +1,8 @@
 const generatorDisplay = document.querySelector('.pin-generator input');
 const generateButton = document.querySelector('.generate-btn');
 const inputDisplay = document.querySelector('.input-section input');
+const notifyMatched = document.querySelector('.matched');
+const notifyNotMatched = document.querySelector('.not-matched');
 
 let pin = 0;
 
@@ -59,13 +61,13 @@ document.querySelector('.submit-btn').addEventListener('click', () => {
 	const inputPin = parseInt(inputDisplay.value);
 
 	if (inputPin === pin) {
-		document.querySelector('.matched').style.display = 'block';
+		notifyMatched.style.display = 'block';
 	} else {
-		document.querySelector('.not-matched').style.display = 'block';
+		notifyNotMatched.style.display = 'block';
 	}
 });
 
 const clearNotify = () => {
-	document.querySelector('.matched').style.display = 'none';
-	document.querySelector('.not-matched').style.display = 'none';
+	notifyMatched.style.display = 'none';
+	notifyNotMatched.style.display = 'none';
 };
